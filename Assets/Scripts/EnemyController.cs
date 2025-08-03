@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+
+        if(enemys != null)return;
         EnemyGeneration();
     }
 

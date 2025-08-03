@@ -413,7 +413,7 @@ namespace NRKernal
             }
             if (!GameObject.Find("NREmulatorController"))
             {
-                Instantiate(Resources.Load<GameObject>("Prefabs/NREmulatorController"));
+                //Instantiate(Resources.Load<GameObject>("Prefabs/NREmulatorController"));
             }
         }
 #endif
