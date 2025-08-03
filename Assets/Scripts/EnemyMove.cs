@@ -6,7 +6,7 @@ public class EnemyMove : MonoBehaviour
 {
     private Transform target;
     public float speed = 3f;
-    public float point;
+    //public float point;
 
 
     public void SetTarget(Transform targetTransform)

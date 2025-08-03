@@ -18,7 +18,8 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
 
-        if(enemys != null)return;
+        if (enemys == null || enemys.Length == 0) return;
+
         EnemyGeneration();
     }
 
