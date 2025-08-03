@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/NRSDK/Demos/HandTracking.unity
     guid: 7d33c4a3bc8da9745acac0e1d62c44bf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: c86df30094ecd974ab1302b77eb75ec8
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 3a0423f80cf4ff147838ace61570aed5
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: a76363cb427fb894d82caa36515de1ac
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 307ea414052af93418b65fde745472a4, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d9371f3ad2b960e4aa1d1490d6c192ac, type: 2}
