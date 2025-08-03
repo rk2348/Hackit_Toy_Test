@@ -25,9 +25,8 @@ public class Bullet : MonoBehaviour
 
             // “G‚ğíœ
             Destroy(collision.gameObject);
-        }
 
-        // ’e‚Í“–‚½‚Á‚½‚ç‘¦íœ
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
