@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainManager : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float Time = 5f;
+
     void Start()
     {
         // 5•bŒã‚ÉResult‚Ö
-        Invoke("GoToResult", 5f);
+        Invoke("GoToResult", Time);
     }
 
     // Update is called once per frame

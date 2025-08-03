@@ -6,9 +6,9 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject player;
+    [SerializeField] private float time;
 
     private float speed = 5f;
-    private float time = 1.0f;
 
     private float maxX = 5f;
     private float minX = -5f;
