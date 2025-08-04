@@ -11,16 +11,17 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        // シングルトン化
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);  // ← 追加：シーンをまたいでも破棄されない
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
 
     void Start()
     {

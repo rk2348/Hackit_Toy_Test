@@ -8,7 +8,6 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Text timeText;
 
     private float timer;
-    public static float timeResult;  // © ‚±‚±‚Åˆø‚«Œp‚®
 
     void Start()
     {
@@ -25,7 +24,6 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            timeResult = countdownTime;  // © ‰Šúİ’è‚³‚ê‚½ŠÔ‚ğ‹L˜^
             SceneManager.LoadScene("Result");
         }
     }
