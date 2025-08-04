@@ -3,10 +3,14 @@ using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
-    [SerializeField] private Text resultTimeText;
+    [SerializeField] private Text resultScoreText;
 
     void Start()
     {
-        resultTimeText.text = "Time: " + Mathf.Ceil(TimeManager.timeResult).ToString();
+        if (ScoreManager.Instance != null && resultScoreText != null)
+        {
+            int score = ScoreManager.Instance.GetScore();
+            resultScoreText.text = "Final Score: " + score.ToString();
+        }
     }
 }
