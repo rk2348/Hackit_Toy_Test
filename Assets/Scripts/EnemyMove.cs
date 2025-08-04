@@ -8,6 +8,8 @@ public class EnemyMove : MonoBehaviour
     public float speed = 3f;
     //public float point;
 
+    private int scoreValue = -100;
+
 
     public void SetTarget(Transform targetTransform)
     {
@@ -27,6 +29,8 @@ public class EnemyMove : MonoBehaviour
     {
         if (collion.gameObject.CompareTag("Player"))
         {
+            ScoreManager.Instance.AddScore(scoreValue);
+
             Destroy(this.gameObject);
         }
     }
