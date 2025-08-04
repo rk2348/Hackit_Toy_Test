@@ -2,45 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemys;
-    [SerializeField] private GameObject player;
-    [SerializeField] private float time;
+    private Transform target;
+    public float speed = 3f;
+    //public float point;
 
-    private float speed = 10f;
 
-    private float maxX = 5f;
-    private float minX = -5f;
-    private float maxZ = 15f;
-    private float minZ = 0f;
+    public void SetTarget(Transform targetTransform)
+    {
+        target = targetTransform;
+    }
 
     private void Update()
     {
+        if (target == null) return;
 
-        if (enemys == null || enemys.Length == 0) return;
-
-        EnemyGeneration();
+        Vector3 direction = (target.position - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
     }
 
-    private void EnemyGeneration()
+    //ìGÇ∆ÉvÉåÉCÉÑÅ[Ç™ìñÇΩÇ¡ÇΩÇÁìGÇÃPrefabÇè¡Ç∑
+    private void OnCollisionEnter(Collision collion)
     {
-        time -= Time.deltaTime;
-
-        if (time <= 0.0f)
+        if (collion.gameObject.CompareTag("Player"))
         {
-            time = 1.0f;
-            int number = Random.Range(0, enemys.Length);
-            float spawnX = Random.Range(minX, maxX);
-            float spawnZ = Random.Range(minZ, maxZ);
-
-            GameObject newEnemy = Instantiate(enemys[number], new Vector3(spawnX, 0, spawnZ), Quaternion.identity);
-
-            EnemyMove moveScript = newEnemy.GetComponent<EnemyMove>();
-            if (moveScript != null && player != null)
-            {
-                moveScript.SetTarget(player.transform);
-            }
+            Destroy(this.gameObject);
         }
     }
 }

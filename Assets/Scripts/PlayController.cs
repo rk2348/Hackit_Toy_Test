@@ -53,8 +53,11 @@ public class PlayController : MonoBehaviour
             Vector3 up = mainCamera.transform.up;
             Vector3 right = mainCamera.transform.right;
 
-            followObject.position = mainCamera.transform.position + forward * distanceInFront;
-            followObject.rotation = mainCamera.transform.rotation; // 同じ向きにしたくないなら削除
+            followObject.position = new Vector3(1f, 0.2f, 1f);  // 例：ワールド座標 (0,1.5,0) に固定
+
+            // 回転を固定（ワールド座標で0度回転に設定）
+            followObject.rotation = Quaternion.Euler(80f, -3f, 0f);
+
         }
     }
 }
