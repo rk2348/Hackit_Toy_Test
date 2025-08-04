@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public Animator buttonAnimator;      // ← アニメーション再生用
-    public float animationDelay = 0.5f;  // ← アニメーション再生時間
+    public float animationDelay = 0.3f;  // ← アニメーション再生時間
 
     private string nextSceneName;
 
