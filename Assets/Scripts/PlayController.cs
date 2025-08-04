@@ -6,7 +6,8 @@ public class PlayController : MonoBehaviour
     [SerializeField] float yRotationSpeed = 5f;
 
     [SerializeField] Transform followObject;     // 視界の正面に常に置きたいオブジェクト
-    [SerializeField] float distanceInFront = 2f;  // カメラからの距離
+    [SerializeField] Vector3 positionOffset = new Vector3(1f, 0.2f, 1f);  // カメラからの相対オフセット
+    [SerializeField] Vector3 fixedRotationEuler = new Vector3(80f, -3f, 0f); // 固定回転角度
 
     private Vector3 startMousePosition = Vector3.zero;
     private Vector3 startCameraRotation = Vector3.zero;
@@ -46,15 +47,15 @@ public class PlayController : MonoBehaviour
             startCameraRotation = Vector3.zero;
         }
 
-        // カメラの正面に followObject を表示（毎フレーム更新）
+        // followObject の位置と回転をカメラ基準で設定
         if (followObject != null && mainCamera != null)
         {
-            Vector3 forward = mainCamera.transform.forward;
-            Vector3 up = mainCamera.transform.up;
-            Vector3 right = mainCamera.transform.right;
+            // カメラの位置 + カメラの回転を考慮したオフセットを計算
+            Vector3 worldPosition = mainCamera.transform.position + mainCamera.transform.rotation * positionOffset;
+            followObject.position = worldPosition;
 
-            followObject.position = mainCamera.transform.position + forward * distanceInFront;
-            followObject.rotation = mainCamera.transform.rotation; // 同じ向きにしたくないなら削除
+            // 固定回転を設定（ワールド座標で固定したい場合はこう書く）
+            followObject.rotation = Quaternion.Euler(fixedRotationEuler);
         }
     }
 }
